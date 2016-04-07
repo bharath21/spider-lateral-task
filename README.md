@@ -15,8 +15,9 @@ the name of the database am using is **moviebuff** and tables it consists are *m
 ##Build Instructions
 1.install xampp<br>
 2.run phpmyadmin in browser<br>
-3.import moviebuff.sql in database<br>
-4.open [index link](http://localhost/spider_task_4thApr/index.php) in browser<br>
+3.create database with name **moviebuff**<br>
+4.import moviebuff.sql into this  database<br>
+5.open [index link](http://localhost/spider_task_4thApr/index.php) in browser<br>
 
 ##Working Screenshots
 ![Image of index.php](https://github.com/bharath21/spider-lateral-task/blob/master/img/Screenshot%20(2).png)
