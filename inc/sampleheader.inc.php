@@ -19,7 +19,7 @@
   <!-- ratings -->
   <link href="bootstrapratings/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
   <script src="bootstrapratings/js/star-rating.min.js" type="text/javascript"></script> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+  
 
   <?php
 
@@ -93,7 +93,7 @@ else{
 
 
   </style>
-   
+
   <script>
   function emptyElement(x,y){
   document.getElementById(x).innerHTML = "";
