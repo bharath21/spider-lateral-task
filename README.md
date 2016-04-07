@@ -1,10 +1,10 @@
-# spider-lateral-task
-movie rating site
+# Spider-lateral-task
+Movie rating site
 ##Description
-my project MOVIEBUFF is a movie rating site where an user signs up and logs in .He/She can rate movies that are not rated by them or update already rated movies by them.Each movie in the database has average rating and number of users rated that movie.
+My project MOVIEBUFF is a movie rating site where an user signs up and logs in .He/She can rate movies that are not rated by them or update already rated movies by them.Each movie in the database has average rating and number of users rated that movie.
 User can change his account settings,update his profile info and can switch to other users' profiles and see their ratings.
 
-##prerequisities
+##Prerequisities
 install [Xampp](https://www.apachefriends.org/download.html)
 
 ##Database and tables description
@@ -13,12 +13,12 @@ the name of the database am using is **moviebuff** and tables it consists are *m
 *ratings* table consists ratings of movies.
 
 ##Build Instructions
-1.install xampp
-2.run phpmyadmin in browser
-3.import moviebuff.sql in database
-4.open [index link](http://localhost/spider_task_4thApr/index.php) in browser
+1.install xampp<br>
+2.run phpmyadmin in browser<br>
+3.import moviebuff.sql in database<br>
+4.open [index link](http://localhost/spider_task_4thApr/index.php) in browser<br>
 
-##working screenshots
+##Working Screenshots
 ![Image of index.php](https://github.com/bharath21/spider-lateral-task/blob/master/img/Screenshot%20(2).png)
 ![Image of homepage](https://github.com/bharath21/spider-lateral-task/blob/master/img/Screenshot%20(4).png)
 ![Image of userpage](https://github.com/bharath21/spider-lateral-task/blob/master/img/Screenshot%20(5).png)
