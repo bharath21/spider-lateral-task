@@ -245,7 +245,7 @@ if(isset($_POST["user_login"]) && isset($_POST["password_login"])){
 			<div class="form-group">
 				<label  for="pwd1" class="control-label col-sm-4">Password:</label>
 				<div class="col-sm-8">
-				<input type="password" name="password1" class="form-control" id="pwd1" placeholder="Enter password(minimum 5 chars and no spl chars)" required>
+				<input type="password" name="password1" class="form-control" id="pwd1" placeholder="Enter password(minimum 5 chars )" required>
 				<span class="error"> <?php echo $pswdErr;?></span>
 				</div>
 			</div>
