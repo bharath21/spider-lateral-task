@@ -4,10 +4,9 @@
 		$logid=$_SESSION["user_id"];
 		//receive $_GET data
 
-		$movieid=$_GET['m_id'];
-		$edit=$_GET['edit'];
-		$rating=$_GET['stars'];
-
+		$movieid=mysqli_real_escape_string($con,$_GET['m_id']);
+		$edit=mysqli_real_escape_string($con,$_GET['edit']);
+		$rating=mysqli_real_escape_string($con,$_GET['stars']);
 		//if edit=0 then user is rating particular movie for first time..else he's trying to update his ratings
 
 	    if($_GET['stars']!=NULL && $_GET['m_id']!=NULL && $_GET['edit']!=NULL){

@@ -1,4 +1,6 @@
 		<!--tab content-->
+    <?php include("./inc/connect.inc.php"); ?>
+
 		<div class="tab-content">
 		
 		
@@ -11,13 +13,25 @@
      $fetch_num_movies=mysqli_fetch_array($num_movies);
     $num_movies=$fetch_num_movies['num_movies'];
     ?>
+
+
+
     
     <h2 align="left">Rated By Me (<?php echo $num_movies;?>) </h2>
+
+   
 
     <?php
     	//query to list movies rated by user
        $sql="SELECT * FROM ratings WHERE id='$user_id' LIMIT 20";
        $getusermovies=mysqli_query($con,$sql) or die(mysqli_error) ;
+       //query to find whether user is admin to add movies
+       $sql="SELECT admin_flag FROM users1 WHERE id='$user_id' ";
+       $getadminflag=mysqli_query($con,$sql) or die(mysqli_error) ;
+
+       $row_adminflag=mysqli_fetch_assoc($getadminflag);
+       $user_adminflag=$row_adminflag['admin_flag'];
+
 
 
        while($row=mysqli_fetch_assoc($getusermovies)) {
@@ -177,5 +191,54 @@
 		<p>id: <?php echo $profile_id; ?></p>
   
 		</div>
+
+    <div id="addmovies" class="tab-pane fade ">
+
+    <?php
+    if($user_adminflag==0){
+      echo "<h3>sorry you cant add movies as you are not admin</h3>";
+
+
+    }
+    else{
+      echo"
+      <h3>Add Movie</h3>
+      <form role=\"form\" action=\"addmovies.php\" method=\"POST\">
+        <div class=\"col-sm-10\">
+      <div class=\"form-group\">
+      <label for=\"movie_name\">MOVIE NAME:</label>
+      <input class=\"form-control\" id=\"movie_name\" name=\"movie_name\" placeholder=\"Enter Movie Name*\" type=\"text\" onfocus=\"emptyElement('status','movienameError')\" required>
+      
+      </div>
+      <p id=\"movienameError\"><?php echo $movienameError;?></p>
+      </div>
+      <div class=\"col-sm-2\">
+      </div>
+
+        <div class=\"col-sm-10\">
+      <div class=\"form-group\">
+      <label for=\"description\">Description:</label>
+      <input class=\"form-control\" id=\"description\" name=\"description\" placeholder=\"Enter Description of the movie*\" type=\"text\" onfocus=\"emptyElement('status','description')\" required>
+      
+      </div>
+      <p id=\"descriptionError\"><?php echo $descriptionError;?></p>
+      </div>
+      <div class=\"col-sm-2\">
+      </div>
+
+      <div class=\"col-sm-10\">
+  <p id=\"status\"><?php echo $status ?></p>
+   <input class=\"pull-right\" type=\"submit\" name=\"submit\">
+   </div>
+   <div class=\"col-sm-2\">
+      </div>
+      </form>
+      ";
+      
+       
+    }
+    ?>
+  
+    </div>
 
 		</div>

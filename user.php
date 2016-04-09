@@ -46,7 +46,75 @@ if(isset($_GET["u"])){
 		$isOwner = "yes";
 }
 
+//adding movies to database
+
+$reg=@$_POST['submit'];
+$moviename="";$description="";$status="";
+$movienameError="";$descriptionError="";
+function test_input($data) {
+   $data = trim($data);//removes unwanted white spaces
+   
+   return $data;
+}
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+if($reg){
+	echo"hey ";
+
+   
+
+  if(empty($_POST["movie_name"])){
+    $movienameError="please fill  name";
+    echo "movie errotr";
+  }
+  else{
+    $moviename=test_input($_POST["movie_name"]);
+   
+    
+  }
+  
+  
+  if(empty($_POST["description"])){
+    $descriptionError="please enter description";
+    echo "description error";
+  }
+  else{
+    $description=test_input($_POST["description"]);
+    
+  }
+ 
+ 
+
+  
+  if($movienameError=="" &&  $descriptionError=="" ){
+
+     
+    //$moviename=mysqli_real_escape_string($con,$moviename);
+    //$description=mysqli_real_escape_string($con,$description);
+    $query=mysqli_query($con,"INSERT INTO movies(m_id,title,description,casting,year_of_release,avg_rating,poster) VALUES ('','$moviename','$description',' ',' ',0,' ')") or die("unable to update");
+    $status="movie details are received successfully";
+    
+  
+  
+  
+}
+else{
+	echo "there is an error";
+  }
+
+
+}
+else{
+	echo "there is an reg  error";
+  }
+	  }
+
+
+
 ?>
+
+
 
 
 
@@ -80,6 +148,7 @@ if(isset($_GET["u"])){
 		 if(file_exists("userdata/profile_pics/$rand_dir_name/".@$_FILES["profilepic"]["name"])){
 			 echo $_FILES["profilepic"]["name"] . "Already Taken";
 		 }
+		 
 		 else{
 			 move_uploaded_file($_FILES["profilepic"]["tmp_name"],"userdata/profile_pics/$rand_dir_name/".$_FILES["profilepic"]["name"]);
 		    $propic_Err="Uploaded and stored in :userdata/profile_pics/$rand_dir_name".@$_FILES["profilepic"]["name"];
@@ -101,6 +170,8 @@ if(isset($_GET["u"])){
    }
    
 		?>
+
+		     
 		
 
   
@@ -175,6 +246,8 @@ if(isset($_GET["u"])){
 			<li><a  href="home.php"><span class="glyphicon glyphicon-film"></span>Movies List</a></li>
 
 			<li ><a data-toggle="tab" href="#pageMiddle">ANY DEFAULT USER DATA</a></li>
+
+						<li ><a data-toggle="tab" href="#addmovies">Add movies</a></li>
 
 			
 		</ul>
